@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policy Password Tool</title>
+  <meta name="description" content="chrome://policyを使ってwifiパスワードを特定するツールです">
+  <meta name="author" content="りょう">
+  <meta name="theme-color" content="#f0fff0">
+  <meta property="og:title" content="Policy Password Tool">
+  <meta property="og:description" content="chrome://policyを使ってwifiパスワードを特定するツールです">
+  <meta property="og:url" content="https://policy-password-tool.github.io/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./favicon.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="./favicon.png" type="image/png" />
+</head>
+<body>
+  <h1>Policy Password Tool</h1>
+  <p><i>このツールを違法行為に使用しないようにしてください</i></p>
+
+  <label><strong>chrome-net-export-log.jsonをアップロード</strong></label><br />
+  <input type="file" id="export" accept=".json" />
+
+  <table id="output-networks">
+    <thead>
+      <tr>
+        <th>SSID</th>
+        <th>password</th>
+        <th>Security</th>
+        <th>HiddenSSID</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+    <h2>Log</h2>
+    <div id="log"></div>
+
+  <h2>How to use</h2>
+  <ul>
+    <li>chrome://net-export を開く</li>
+    <li>"OPTIONS" の "Include raw bytes" にチェックをする</li>
+    <li>"Start Logging to Disk" を押す</li>
+    <li>次に chrome://policy に移動して "ポリシーを再読み込み" を押す</li>
+    <li>chrome://net-export に戻って "stop logging" を押す</li>
+    <li>chrome-net-export-log.jsonをここにアップロード</li>
+  </ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
